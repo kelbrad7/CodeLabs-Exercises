@@ -15,4 +15,4 @@ The practice exercises from the CodeLabs classes.
 
 3.2 Create an application that, on button click, runs a function that prints out a users name, age, and occupation
 
-Create a function that takes an object and returns the keys and values as separate arrays. Return the keys sorted alphabetically and their corresponding values in the same order.
+3.3 Create a function that takes an object and returns the keys and values as separate arrays. Return the keys sorted alphabetically and their corresponding values in the same order.
