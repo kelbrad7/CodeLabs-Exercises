@@ -10,3 +10,9 @@ The practice exercises from the CodeLabs classes.
 2.2 Looping through an array of object; creating and appending elements. 
 
 2.3 Finding the multiples of a number with a function. 
+
+3.1 Create a function that takes in an argument and uses string interpolation to print that arguments value somewhere in a text string.
+
+3.2 Create an application that, on button click, runs a function that prints out a users name, age, and occupation
+
+Create a function that takes an object and returns the keys and values as separate arrays. Return the keys sorted alphabetically and their corresponding values in the same order.
