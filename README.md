@@ -16,3 +16,9 @@ The practice exercises from the CodeLabs classes.
 3.2 Create an application that, on button click, runs a function that prints out a users name, age, and occupation
 
 3.3 Create a function that takes an object and returns the keys and values as separate arrays. Return the keys sorted alphabetically and their corresponding values in the same order.
+
+4.1 Create button that changes the background and text color randomly.
+
+4.2 Count the number of true values in an array.
+
+4.3 Build a working clock.
