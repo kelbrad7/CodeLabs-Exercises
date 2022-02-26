@@ -21,4 +21,4 @@ The practice exercises from the CodeLabs classes.
 
 4.2 Count the number of true values in an array.
 
-4.3 Build a working clock.
+4.3 Build Javascript clock. Used CSS for sizing and positioning of elements.
