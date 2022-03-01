@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Input to Local Storage</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="main.js" href = "main.js">
+    
 </head>
 <body>
-   <form>
-       <label for = "dogBreed"> Dog Breed:</label><br>
-       <input type = "text" id = "dogBreed" name = "dogBreed"><br>
-       <label for = "dogName"> Dog Name:</label><br>
-       <input type = "text" id = "dogName" name = "dogName"
+<main class = "container">
+    <h1>Favorite Dog Breed</h1>
+   <form id = "breedForm">
+       <label for = "breeds"> Select Your Favorite Dog Breed:</label><br>
+        <select name = "breeds" id = "breeds">
+           <!-- options populated by array in JS-->
+       </select>
+       <button type ="submit" class="btn">Submit</button>
+
    </form> 
+   <script src=" main.js"></script>
+
 </body>
+
 </html>
