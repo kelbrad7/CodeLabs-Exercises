@@ -19,16 +19,45 @@ let newOption;
     //console.log (newOption);
 }
 
-// get input//
+// event listener//
 
  document.addEventListener("submit", createChoice);
 
+ //global variables
+ const newChoice = ("");
+ const locStorArr = [];
+ const count = {};
+
+ //function to get and store input
 function createChoice (e) {
     const newChoice = document.querySelector("select").value;
      e.preventDefault();
 
-    alert (`You chose ${newChoice} as your favorite breed.`);
- }
+    //alert (`You chose ${newChoice} as your favorite breed.`);
 
- // save input
+locStorArr.push(newChoice);
+localStorage.setItem("chosenBreed",(JSON.stringify(locStorArr)));
+//console.log(locStorArr);
+
+let storedArr = JSON.parse(localStorage.getItem("chosenBreed"));
+storedArr.sort()
+//console.log(storedArr);
+
+
+const counts = {};
+
+for (const num of storedArr) {
+  counts[num] = counts[num] ? counts[num] + 1 : 1;
+}
+// console.log(counts);
+
+// Object.entries(counts).sort((a,b) => b[1]-a[1]);
+
+let entries = Object.entries (counts);
+let sorted = entries.sort (function (a,b) {return b[1]-a[1]});
+
+console.log (sorted);
+
+}
+
 
