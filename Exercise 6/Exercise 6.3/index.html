@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+function getSumOfProducts(nestedArr){
+    const firstProduct = nestedArr [0][0] * nestedArr [0][1];
+    const secondProduct = nestedArr [1][0] * nestedArr [1][1];
+    const thirdProduct = nestedArr [2][0] * nestedArr [2][1];
+    const sum = firstProduct+secondProduct+thirdProduct;
+
+    console.log (sum);
+}
+
+
+const myProduct = 
+getSumOfProducts([[1,2],[1,1], [2,3]])
+
+
+    </script>
+    
+</body>
+</html>
