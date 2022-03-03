@@ -25,30 +25,34 @@ let newOption;
 
  //*****global variables
  const newChoice = ("");
- const locStorArr = [];
- const count = {};
-//breedKeys= Object.keys(sorted)
+ //const locStorArr = [];
+ //const count = {};
+ //breedKeys= Object.keys(sorted)
  //*****get input
 function createChoice (e) {
     const newChoice = document.querySelector("select").value;
      e.preventDefault();
 
+breedChoiceArr= [];
+breedChoiceArr.push(newChoice);
+console.log(breedChoiceArr);
+
     //alert (`You chose ${newChoice} as your favorite breed.`);
 
 //***** store input in local storage
-locStorArr.push(newChoice);
-localStorage.setItem("chosenBreed",(JSON.stringify(locStorArr)));
-//console.log(locStorArr);
+// locStorArr.push(newChoice);
+// localStorage.setItem("chosenBreed",(JSON.stringify(locStorArr)));
+// //console.log(locStorArr);
 
 
-//***** get stored array from local storage
-let storedArr = JSON.parse(localStorage.getItem("chosenBreed"));
-storedArr.sort()
+// //***** get stored array from local storage
+// let storedArr = JSON.parse(localStorage.getItem("chosenBreed"));
+// storedArr.sort()
 //console.log(storedArr);
 
 //count the number of occurrences for each breed
 const counts = {};
-for (const num of storedArr) {
+for (const num of breedChoiceArr) {
   counts[num] = counts[num] ? counts[num] + 1 : 1;
 }
 // console.log(counts);
