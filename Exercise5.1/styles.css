@@ -41,6 +41,10 @@
     justify-self: center;
     
 }
+#css_ul {
+        
+    list-style-type: none;
+}
 
 #js_area {
     grid-column: 2;
