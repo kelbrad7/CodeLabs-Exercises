@@ -4,25 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Input to Local Storage</title>
+    <title> Favorite Dog Breed</title>
     <link rel="stylesheet" href="style.css">
     
-</head>
+</head>  
 <body>
 <main class = "container">
     <h1>Favorite Dog Breed</h1>
+    <img src = "bright_eyes.png" alt="Border Collie" width = "100% height = "auto"></img>
+ 
    <form id = "breedForm">
        <label for = "breeds"> Select Your Favorite Dog Breed:</label><br>
         <select name = "breeds" id = "breeds">
             
            <!-- options populated by array in JS-->
        </select>
-       <button type ="submit" class="btn">Submit</button>
+       <button type = "submit" class="btn"><img src="pawprint.png"width = 75px height = 75px/></button>
    </form> 
-   <ul id="topDogs">Top Dogs</ul>
-
+   <h2 id="vote">Vote to see the top dogs.</h2>
+   <ul id="topDogs" aria-label= "Top Dogs"> 
+       
+   </ul>
+</main>
   
-   <script src=" main.js"></script>
+   <script src="main.js"></script>
 
 </body>
 

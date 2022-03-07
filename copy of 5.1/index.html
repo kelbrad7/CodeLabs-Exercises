@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <title>Coding Notes</title>
+</head>
+<link rel="stylesheet" href="styles.css">
+<body onload = "displayList();">
+    
+    
+    <main id = "grid_container">
+
+    <div id = "header">Coding Notes</div>
+
+    <!---<div id="pic"><img src = "notebook.png" alt = "smiling notebook"></div>--->
+
+    <div id="form_area">
+
+    <form id="notes_form">
+    <label for="notes"> </label>
+    <input 
+        id ="add_notes"
+        type = "text"
+        id ="notes"
+        name= "notes"
+        placeholder = "Add your notes here."
+        />
+        
+
+<div id="radios">
+    
+    <label for ="css_radio">    <input 
+        id ="css_radio"
+        type="radio"
+        name="lang_type"
+        value ="css_radio"
+        >CSS</label>
+
+    
+    <label for "js_radio"> <input  
+        id ="js_radio"
+        type ="radio"
+        name="lang_type"
+        value="js_radio"
+        />JS</label>
+    
+
+    <button type = "submit" id="add_btn" 
+    aria-label="Add you notes.">ADD</button>
+</div>
+    </form>
+    </div>
+
+    <div id="css_area"><ul class = "lists" id="css_ul" contenteditable = "true">CSS Notes</ul> </div>
+        
+    <div id = "js_area"><ul class = "lists" id="js_ul">JS Notes</ul></div>
+    </main>
+    
+    <script src="main.js"></script>
+</body>
+
+
+</html>

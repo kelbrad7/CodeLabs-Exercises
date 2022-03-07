@@ -2,7 +2,8 @@ const addNotes = document.querySelector ("#add_notes");
 const cssRadio = document.querySelector("#css_radio")
 const jsRadio = document.querySelector ("#js_radio");
 const form = document.querySelector ("#notes_form");
-    
+
+     
      
 //add event listener
 
@@ -14,10 +15,11 @@ form.addEventListener ("submit", storeSnipsArray);
 function checkRadios() {
     
     if (cssRadio.checked == false && jsRadio.checked == false) {
-        alert("Please choose CSS or JS");
-       
+        alert("Please choose CSS or JS.");}
+        if (addNotes.value.length == 0){alert ("Please add your note.")}
     
-    }}
+    }
+
      //*** list variables ***//
      let cssNote = "";
 
@@ -36,9 +38,11 @@ function checkRadios() {
      e.preventDefault();
     if (cssRadio.checked==true) {
         cssNote = addNotes.value;
+    
     }
         else if (jsRadio.checked== true) {
             jsNote = addNotes.value;
+    
     } 
     
     //** push to local storage, append to list ***//

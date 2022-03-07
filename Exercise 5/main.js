@@ -1,8 +1,8 @@
 
 //Array of breeds
 const breedsArr = ["Labrador Retriever", "French Bulldog", "German Shepherd", "Golden Retriever", "Border Collie", "Poodle", "Beagle", "Rottweiler", "German Shorthaired Pointer", "Dachshund", "Corgi", "Australian Shepherd", "Yorkshire Terrier", "Boxer", "Great Dane","Husky", "Cavaleir King Charles", "Doberman Pinscher", "Minature Schnauzer","Shih Tzu","Boston Terrier", "Bernese Mountain Dog","Pomeranian","Havanese", "Cane Corso", "Bulldog", "Goldendoodle", "Labradoodle"]
-breedsArr.sort();
-
+breedsArr.sort(); 
+ 
 
 //function to add array of breeds to select box
 
@@ -13,36 +13,41 @@ let newOption;
     newOption       = document.createElement("option");
     newOption.innerHTML = breed;
     newOption.value     = breed;
+    
 
     mySelect.appendChild(newOption);
     
-    //console.log (newOption);
 }
 
 //*****add event listener for submit button//
 
  document.addEventListener("submit", createChoice);
+ document.addEventListener("submit", disableBut);
+ const oldList = document.querySelector("li");
+ const list = document.querySelector("ul");
+ 
 
  //*****global variables
  const newChoice = ("");
  const locStorArr = [];
  const count = {};
+ 
 //breedKeys= Object.keys(sorted)
  //*****get input
 function createChoice (e) {
     const newChoice = document.querySelector("select").value;
-     e.preventDefault();
+      e.preventDefault();
 
     //alert (`You chose ${newChoice} as your favorite breed.`);
+const storedArr = JSON.parse(localStorage.getItem("chosenBreed"))|| [];
 
 //***** store input in local storage
-locStorArr.push(newChoice);
-localStorage.setItem("chosenBreed",(JSON.stringify(locStorArr)));
-//console.log(locStorArr);
+storedArr.push(newChoice);
+localStorage.setItem("chosenBreed",(JSON.stringify(storedArr)));
 
 
 //***** get stored array from local storage
-let storedArr = JSON.parse(localStorage.getItem("chosenBreed"));
+
 storedArr.sort()
 //console.log(storedArr);
 
@@ -55,19 +60,25 @@ for (const num of storedArr) {
 
 //sort by number of occurrences for each bread
 let entries = Object.entries (counts);
-let sorted = entries.sort (function (a,b) {return b[1]-a[1]});
-
-console.log (sorted);
-
-
-list = document.querySelector('ul');
-choice = "";
+ let sorted = entries.sort (function (a,b) {return b[1]-a[1]});
+console.log(sorted);
+// }
+  
+// function popList(){
 for (let item of sorted){
-choice = document.createElement("li");
-choice.innerHTML=item;
+  const choice = document.createElement("li");
+  choice.innerHTML= item;
+list.appendChild(choice);}
 
-list.appendChild(choice);
+//document.querySelector("form").reset();
 }
+
+function disableBut(){
+  document.querySelector("button").disabled = true;
+  
 }
+
+
+
 
 

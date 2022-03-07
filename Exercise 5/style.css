@@ -1,49 +1,87 @@
+
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .container {
-    background-image: url("bright_eyes.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: bottom left;
+    display: grid;
+    grid-template-columns: 25rem 25rem;
+    grid-template-rows: 6.25rem 12.5rem 4.7rem 4.7rem;
+    box-sizing: border-box;
     min-height: 100vh;
     width: 100vw;
-    text-align: center;
-    
-    
-
+    grid-column-gap: none;
 }
+
 h1 {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 3.25rem;
+    grid-column: 2;
+    grid-row: 1;
+    z-index: 1;
+    font-size: 2.25rem;
+    justify-self: center;
 }
-form {
-    width: clamp(275px, 50%, 700px);
-    position: relative;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.25em;
-
-
-}
-input {
-    position: relative;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 0.80em;
-    width: 100%;
-    height: 100%;
-    border-color: black;
-    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.14) , 0px 3px 1px -2px rgba(0,0,0,0.12) , 0px 1px 5px 0px rgba(0,0,0,0.2);
-
+ 
+#pic {
+    grid-column: 1;
+    grid-row: 1/6;
+    z-index: 0;
+    justify-self: stretch;
     
 }
 
-.btn {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 1.00em;
-    border-radius: 8px;
-
+form {
+    grid-column: 2;
+    grid-row: 2;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    font-size: 1.5rem;
+    display: grid;
+    justify-self: center;
+    
+}
+label{
+    justify-self: center;
 }
 
-option {
-    color: pink;
-    font-size: 20px;
+select {
+    font-size: 1.5rem;
+    cursor: pointer;
+    max-width: 100%;
+    justify-self: center;
+    
 }
+
+button {
+    
+    height: 100px;
+    width: 100px;
+    border: none;
+    background:none;
+    cursor: pointer;
+    margin:0;
+    justify-self: center;
+    
+   
+}
+
+#vote {
+    grid-column: 2;
+    grid-row: 3;
+    justify-self: center;
+}
+
+ul{
+    grid-column: 2;
+    grid-row: 4;
+    justify-self: center;
+    
+}
+
+li{
+    list-style-type: none;
+    font-size: 1.25rem;
+    
+    
+}
+
+
