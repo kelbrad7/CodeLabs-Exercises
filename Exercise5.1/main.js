@@ -14,21 +14,17 @@ form.addEventListener ("submit", storeSnipsArray);
 function checkRadios() {
     
     if (cssRadio.checked == false && jsRadio.checked == false) {
-        alert("Please choose CSS or JS");
-       
+        alert("Please choose CSS or JS")
+        return;
+            }
     
-    }}
+    }
      //*** list variables ***//
      let cssNote = "";
-
      let jsNote = "";
-
      const listCS = document.querySelector("#css_ul");
-
      const listJS = document.querySelector("#js_ul");
-
     const snipsCSS = JSON.parse(localStorage.getItem("CSS")) || [];
-
     const snipsJS = JSON.parse(localStorage.getItem("JS")) || [];
 
     //*** grab value***//
@@ -40,22 +36,36 @@ function checkRadios() {
         else if (jsRadio.checked== true) {
             jsNote = addNotes.value;
     } 
+    if (cssNote ==false && jsNote== false) {
+        alert ("Please add your note.");
+        return;}
     
     //** push to local storage, append to list ***//
     if (cssRadio.checked==true) {
             snipsCSS.push(cssNote);
             const newCSS = document.createElement ("li");
             newCSS.innerHTML = cssNote;
-            newCSS.className = "note";
+            newCSS.className = "cssNote";
             listCS.appendChild(newCSS);
+            const removeBut = document.createElement("button");
+            removeBut.type = "submit";
+            removeBut.innerText = "X";
+            removeBut.className = "remove";
+            newCSS.appendChild(removeBut);
+    
             localStorage.setItem("CSS",JSON.stringify(snipsCSS))
         }
         else if (jsRadio.checked== true) {
             snipsJS.push(jsNote);
             const newJS = document.createElement ("li");
             newJS.innerHTML = jsNote;
-            newJS.className = "note";
+            newJS.className = "jsNote";
             listJS.appendChild(newJS);
+            const removeBut = document.createElement("button");
+            removeBut.type = "submit";
+            removeBut.innerText = "X";
+            removeBut.className = "remove";
+            newJS.appendChild(removeBut);
            localStorage.setItem("JS",JSON.stringify(snipsJS))
         }
             form.reset();
@@ -67,17 +77,41 @@ function checkRadios() {
          for (let snipC of snipsCSS){
             const itemCSS = document.createElement("li");
             itemCSS.innerHTML = snipC;
-            itemCSS.className= "note"
-        listCS.appendChild(itemCSS);}
-
+            itemCSS.className= "cssNote"
+        listCS.appendChild(itemCSS);
+        const removeBut = document.createElement("button");
+            removeBut.type = "submit";
+            removeBut.innerText = "X";
+            removeBut.className = "remove";
+            itemCSS.appendChild(removeBut);}
+ 
             for(let snipJ of snipsJS ) {
                 const itemJS = document.createElement("li");
                 itemJS.innerHTML = snipJ;
-                itemJS.className = "note"
-            listJS.appendChild(itemJS);}
+                itemJS.className = "jsNote";
+            listJS.appendChild(itemJS);
+            const removeBut = document.createElement("button");
+            removeBut.type = "submit";
+            removeBut.innerText = "X";
+            removeBut.className = "remove";
+            itemJS.appendChild(removeBut);
+            
+        }
 
              //localStorage.clear();
             }
+
+    
+        
+        
+
+    
+ 
+
+
+        
+        
+        
 
     
         
