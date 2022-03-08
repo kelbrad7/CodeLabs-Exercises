@@ -7,18 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    
-</body>
-<script>
-    function parent (x) {
-    let remember = "remember me";
-    
-    return function closure(){console.log(remember);}
+    <script>
+const budgetArr=[
+{name: "John", age: 21, budget: 23000},
+{name: "Steve", age: 32, budget: 40000},
+{name: "Martin", age: 16, budget: 2700}]
 
-    closure();
-    }
-    let testFunc = parent();
-    testFunc();
-    
-</script>
+
+let sum = 0;
+budgetArr.forEach(function(item){sum += item.budget})
+
+console.log(sum);
+
+
+    </script>
+</body>
 </html>
