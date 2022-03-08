@@ -7,18 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        function parent(x) {
-        return function closure() {
-            let x = "y";
-          return x;
-        }
-      
-      const remember = parent("remembers me");
-      
-      
-      console.log (closure());
-      </script>
+    
 </body>
-</head>
+<script>
+    function parent (x) {
+    let remember = "remember me";
+    
+    return function closure(){console.log(remember);}
+
+    closure();
+    }
+    
+    let testFunc = parent();
+    testFunc();
+</script>
 </html>
