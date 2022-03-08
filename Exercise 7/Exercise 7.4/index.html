@@ -11,13 +11,17 @@
 const budgetArr=[
 {name: "John", age: 21, budget: 23000},
 {name: "Steve", age: 32, budget: 40000},
-{name: "Martin", age: 16, budget: 2700}]
+{name: "Martin", age: 16, budget: 8900}]
 
 
-let sum = 0;
-budgetArr.forEach(function(item){sum += item.budget})
+  let sum = 0;
+  function findSum (arr){
+arr.forEach(function(item){sum += item.budget})
+console.log(`The sum is ${sum}.`)}
 
-console.log(sum);
+findSum(budgetArr);
+
+
 
 
     </script>
