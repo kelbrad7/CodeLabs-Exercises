@@ -57,25 +57,28 @@ form {
 
 #css_ul {
     list-style-type: none;
-    grid-column: 3;
+    grid-column: 4;
     grid-row: 3;
-    justify-self: center;
+    justify-self: end;
     font-size: 2rem;
+    margin: 1.5rem;
+    text-align: right;
+    
 }
 
 #js_ul {
     list-style-type: none;
-    grid-column: 9;
+    grid-column: 6;
     grid-row: 3;
-    justify-self: center;
-    justify-items: start;
+    text-align: center;
     font-size: 2rem;
+    margin: 1.5rem;
 
 }
 
 .cssNote{
     font-size: 1rem;
-    grid-column: 3/12;
+    grid-column: 4;
     grid-row: 4;
     margin-top: 2rem;
     border: solid;
@@ -85,12 +88,15 @@ form {
     height: auto;
     padding: 2rem;
     justify-self: start;
-    display: flex;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    text-align: start;
+   
 }
 
 .jsNote{
     font-size: 1rem;
-    grid-column: 3/12;
+    grid-column: 6;
     grid-row: 4;
     margin-top: 2rem;
     border: solid;
@@ -100,13 +106,32 @@ form {
     height: auto;
     padding: 2rem;
     justify-self: start;
-    display: flex;
-}
-
-.remove {
-    align-self: flex-start;
-    justify-self: flex-end;
+    display: grid;
+    text-align: start;
     
 }
+
+.del_btn {
+    grid-column: 2;
+    grid-row: 3;
+    background-color: red;
+    
+}
+
+.edit_btn{
+    grid-column: 2;
+    grid-row: 1;
+    background-color: aqua;
+    margin-bottom: 0.5rem;
+
+}
+
+.done_btn{
+    grid-column: 2;
+    grid-row: 2;
+    background-color: yellowgreen;
+    margin-bottom: .5rem;
+    
+
 
 
