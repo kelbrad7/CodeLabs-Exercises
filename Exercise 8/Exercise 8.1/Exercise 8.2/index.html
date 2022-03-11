@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+     const alphaNum={};
+    const charArr=[];
+    function capChar(str){
+        for (let i = 0; i<str.length; i++)
+        charArr.push(str.charCodeAt(i))
+        console.log(charArr);
+        }
+
+    const letArr= []
+    function capLet (str){
+    for (let i = 0; i<str.length; i++)
+    letArr.push(str.charAt(i));
+    console.log(letArr);
+        }
+      const caseArr=[]
+      const caseLet=""
+    function compareArrs(){
+        for(let i=0; i<charArr.length; i++){
+            for (let j=0; j<letArr.length; j++) {
+                if (charArr[i]%2 === 0){letArr[j]=letArr[j].toUpperCase(); caseArr.push(letArr[j])
+                        }
+                    else {letArr[j]=letArr[j].toLowerCase();
+                         caseArr.push(letArr[j])}
+                        
+                        console.log(caseArr)
+            }}}
+        
+        capChar("kelly");
+        capLet ('kelly')
+        compareArrs();
+
+    </script>
+    
+</body>
+</html>
+
+<!-- put letter in an array, put codes in array
+    if index of alpha is even
+iterate through both -->
