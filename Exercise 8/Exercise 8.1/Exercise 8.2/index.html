@@ -10,64 +10,19 @@
     <script>
 
 
-    const codeArr=[];
-    const letArr= [];
     
-
-    function getCodes(str){
-        for (let i = 0; i<str.length; i++)
-        codeArr.push(str.charCodeAt(i))
-        // console.log(codeArr);
-        }
-       
-    function getLetters (str){
+    const letArr= [];
+        function getCaseLetters (str){
     for (let i = 0; i<str.length; i++)
-    letArr.push(str.charAt(i));
-        // console.log(letArr);
+    if (str.charCodeAt(i)%2==0)
+    {letArr.push(str.charAt(i).toUpperCase())}
+        else {letArr.push(str.charAt(i).toLowerCase ())}
+        console.log(letArr.join(""));
         }
-
-
-     
-
-        const newStr = letArr.map(eachLetter =>{
-            for (const code of codeArr){
-                if(code%2==0){
-                    return eachLetter.toUpperCase;
-                }
-                else {return eachLetter.toLowerCase;}
-            } console.log(newStr);
-
-        })
-
-// console.log ("check");
-    //   const caseArr=[]
-    //   const caseLet=""
-    // function compareArrs(){
-    //         for (let code of codeArr) {
-    //             for(letter of letArr){
-    //             if ((code%2)==0){
-    //             console.log(letter)
-    //                     }}}}
-                    // else {letArr[j]=letArr[j].toLowerCase();
-                    //      caseArr.push(letArr[j])}
-                        
-                        
-            // }console.log(caseArr)}
-        
-        getCodes("kelly");
-        getLetters ('kelly')
-        // compareArrs();
-
-    // function checkEven(num){
-    //     if (num%2==0){console.log (num)}
-    // }
-    // checkEven(4);
+getCaseLetters("i cannot believe i figured this out!");
 
     </script>
     
 </body>
 </html>
 
-<!-- put letter in an array, put codes in array
-    if index of alpha is even
-iterate through both -->
