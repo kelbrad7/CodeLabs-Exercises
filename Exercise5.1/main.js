@@ -1,3 +1,4 @@
+
 const addNotes = document.querySelector ("#add_notes");
 const cssRadio = document.querySelector("#css_radio")
 const jsRadio = document.querySelector ("#js_radio");
@@ -28,7 +29,7 @@ addBtn.addEventListener ("click", checkInputs)
                 alert("Please choose CSS or JS");
                 return;
             }
-        if (cssNote ===false && jsNote===false) {
+        if (addNotes.value=="") {
                 alert ("Please add your note.")
                 form.reset();
                return;
@@ -41,12 +42,16 @@ addBtn.addEventListener ("click", checkInputs)
     function createLists(e){
     e.preventDefault();
      if (cssRadio.checked==true){
-        const newCssLi = document.createElement ("li");
-        newCssLi.innerText = cssNote;
-        newCssLi.className = "cssNote";
-        newCssLi.setAttribute("contentEditable", "false");
-        addBtns (newCssLi);
-        listCS.appendChild(newCssLi);
+        const newCssDiv = document.createElement("div")
+        newCssDiv.className = "cssDiv"
+        const newCssTa = document.createElement ("textArea");
+        newCssTa.innerHTML = cssNote;
+        newCssTa.className = "cssNote";
+        newCssTa.setAttribute("readonly", "true");
+        listCS.appendChild(newCssDiv);
+        newCssDiv.appendChild(newCssTa)
+        addBtns (newCssDiv);
+
         cssArray.push(cssNote);
         localStorage.setItem("CSS",JSON.stringify(cssArray));
         form.reset();
@@ -54,57 +59,62 @@ addBtn.addEventListener ("click", checkInputs)
          
 
         else if (jsRadio.checked== true){
-        const newJsLi = document.createElement ("li");
-        newJsLi.innerText = jsNote;
-        newJsLi.className = "jsNote";
-        newJsLi.setAttribute("contentEditable", "false");
-        listJS.appendChild(newJsLi);
-        addBtns(newJsLi);
-        jsArray.push(jsNote);
-        localStorage.setItem("JS",JSON.stringify(jsArray));
-        console.log (jsArray);
-        form.reset();
-        }
+            const newJsDiv = document.createElement("div")
+            newJsDiv.className = "jsDiv"
+            const newJsTa = document.createElement ("textArea");
+            newJsTa.innerHTML = jsNote;
+            newJsTa.className = "jsNote";
+            newJsTa.setAttribute("readonly", "true");
+            listJS.appendChild(newJsDiv);
+            newJsDiv.appendChild(newJsTa)
+            addBtns (newJsDiv);
+            jsArray.push(jsNote);
+            localStorage.setItem("JS",JSON.stringify(jsArray));
+            form.reset();
+            console.log(jsArray);}        
      }
 
-     function addBtns(list){
+     function addBtns(div){
         const removeBtn= document.createElement("button");
         removeBtn.type = "submit";
         removeBtn.innerText = "X";
         removeBtn.className = "del_btn";
-        removeBtn.setAttribute("contentEditable", "false");
-        list.appendChild(removeBtn);
+        div.appendChild(removeBtn);
         const editBtn = document.createElement("button")
         editBtn.type = "submit";
         editBtn.innerText = "Edit";
         editBtn.className = "edit_btn";
-        editBtn.setAttribute("contentEditable", "false");
-        list.appendChild(editBtn);
+        div.appendChild(editBtn);
         const doneBtn = document.createElement("button")
         doneBtn.type = "submit";
         doneBtn.innerText = "Done";
         doneBtn.className = "done_btn";
-        doneBtn.setAttribute("contentEditable", "false");
-        list.appendChild(doneBtn);
+        div.appendChild(doneBtn);
      }
         //*** populate CSS list on page load ***/
 
     function populateNoteLists() {
             for (let note of cssArray){
-        newCssLi = document.createElement("li");
-        newCssLi.innerHTML = note;
-        newCssLi.className= "cssNote"
-        newCssLi.setAttribute("contentEditable", "false");
-        listCS.appendChild(newCssLi);
-        addBtns(newCssLi);
+        newCssDiv = document.createElement("div")
+        newCssDiv.className = "cssDiv"
+        newCssTa = document.createElement("textArea");
+        newCssTa.innerHTML = note;
+        newCssTa.className= "cssNote";
+        newCssTa.setAttribute("readonly", "true");
+        listCS.appendChild(newCssDiv);
+        newCssDiv.appendChild(newCssTa)
+        addBtns(newCssDiv);
      }    
             for(let note of jsArray) {
-        newJsLi= document.createElement("li");
-        newJsLi.innerHTML = note;
-        newJsLi.className = "jsNote";
-        newJsLi.setAttribute("contentEditable", "false");
-        listJS.appendChild(newJsLi);
-        addBtns(newJsLi);
+        newJsDiv = document.createElement("div")
+        newJsDiv.className = "jsDiv"
+        newJsTa = document.createElement("textArea");
+        newJsTa.innerHTML = note;
+        newJsTa.className= "jsNote";
+        newJsTa.setAttribute("readonly", "true");
+        listJS.appendChild(newJsDiv);
+        newJsDiv.appendChild(newJsTa)
+        addBtns(newJsDiv);
         }
             
    }
@@ -130,60 +140,68 @@ addBtn.addEventListener ("click", checkInputs)
 
     listJS.addEventListener("click", function(e) {
         let target = e.target;
-            const parentID = target.parentNode.childNodes[0].textContent
+        const parentID = target.parentNode.childNodes[0].textContent
     if (target.classList.contains("del_btn")) {
         target.parentNode.remove();
+        console.log(parentID);
+
         for (notes of jsArray){
         if (notes===parentID){
         const id = (jsArray.indexOf(notes))
         jsArray.splice(id,1);
         localStorage.setItem("JS",JSON.stringify(jsArray));
-        console.log (id)
-        console.log(parentID)
+        console.log (id);
                     // console.log(notes);
                 }
             }
         }})
-// let id = ""
-// listCS.addEventListener("click", function(e) {
-//     let target = e.target;
-//      const parent = target.parentNode.idName
-// if (target.classList.contains("edit_btn")) {
-//     // e.target.innerText = "Done"
-//     // e.target.className = "done_btn"
-//     target.parentNode.setAttribute ("contentEditable", "true");
-//     for (notes of cssArray){
-//     if (notes===parent){
-//     id = (cssArray.indexOf(notes))}}}})
 
-    //     listCS.addEventListener("click", function(e) {
-    // if (e.target.classList.contains("done_btn")) {
-    // const newText = e.target.parentNode.childNodes[0].textContent
-    // cssArray.splice(id,1,newText);
-    // localStorage.setItem("CSS",JSON.stringify(cssArray));
-    // e.target.parentNode.setAttribute ("contentEditable", "false");
+     //**********EDIT AND DONE*****************//
 
-    // console.log (id)
-    // console.log(parent)
-    //      // console.log(notes);
-    //                 }})
-            //     }
-            // }})
+let idEdit = ""
+listCS.addEventListener("click", function(e) {
+    let target = e.target;
+if (target.classList.contains("edit_btn")) {
+    target.parentNode.childNodes[0].removeAttribute("readonly");
+    const textInTa = target.parentNode.childNodes[0].textContent;
+    console.log(textInTa);
+        for (notes of cssArray){
+    if (notes===textInTa){
+    idEdit = (cssArray.indexOf(notes))}}}})
+
+
+    listCS.addEventListener("click", function(e) {
+    if (e.target.classList.contains("done_btn")) {
+     const newText = e.target.parentNode.childNodes[0].value;
+     console.log(newText);
+    cssArray.splice(idEdit,1,newText);
+    localStorage.setItem("CSS",JSON.stringify(cssArray));
+
+}})
+
+// let idEdit = ""
+listJS.addEventListener("click", function(e) {
+    let target = e.target;
+if (target.classList.contains("edit_btn")) {
+    target.parentNode.childNodes[0].removeAttribute("readonly");
+    const textInTa = target.parentNode.childNodes[0].textContent;
+    console.log(textInTa);
+        for (notes of jsArray){
+    if (notes===textInTa){
+    idEdit = (jsArray.indexOf(notes))}}}})
+
+
+    listJS.addEventListener("click", function(e) {
+    if (e.target.classList.contains("done_btn")) {
+     const newText = e.target.parentNode.childNodes[0].value;
+     console.log(newText);
+    jsArray.splice(idEdit,1,newText);
+    localStorage.setItem("JS",JSON.stringify(jsArray));
+
+}})
+
+                
     
     
     
 
-//  1. add Edit button to li
-//  2. Either add Save button or change Edit to Save
-//  3. Save current text.
-//  4. use target.parentNode.replaceWith(element) to replace li with input
-//  5. On save, Iterate through array to find index of oldtext, splice new text. 
-//  6. set new array to local storage
-    
-        
-         
-       
-
-    
-
-    

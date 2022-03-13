@@ -130,8 +130,10 @@ form {
     grid-column: 2;
     grid-row: 2;
     background-color: yellowgreen;
-    margin-bottom: .5rem;
+    margin-bottom: .5rem;}
     
-
+textArea{
+    font-size: 1.25rem;
+}
 
 
